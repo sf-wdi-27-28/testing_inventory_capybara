@@ -29,7 +29,15 @@ require 'capybara-screenshot/rspec'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
+# default to selenium with firefox
 Capybara.default_driver = :selenium
+# to use chrome run rspec with `TEST_BROWSER=chrome rspec spec`
+# you may also need to `brew install chromedriver`
+Capybara.default_driver = :selenium_chrome if ENV['TEST_BROWSER'] == 'chrome'
 
 
 RSpec.configure do |config|
@@ -51,7 +59,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  # # Database Cleaner config
+  ## Database Cleaner config
 
   config.use_transactional_fixtures = false
 
@@ -83,6 +91,5 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
 
 end
