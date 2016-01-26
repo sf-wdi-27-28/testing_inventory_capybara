@@ -13,3 +13,28 @@
   <%= link_to "Edit Product", edit_product_path(@product), class: "btn btn-default" %>
   <%= link_to "Delete Product", product_path(@product), method: :delete, class: "btn btn-default" %>
 </p>
+
+<hr>
+
+<h2> Items: </h2>
+<% if @product.items.count > 0 %>
+  <table class="table table-hover">
+    <thead>
+      <tr><td>id</td><td>size</td><td>color</td><td>status</td></tr>
+    </thead>
+    <tbody>
+    <% @product.items.each do |item| %>
+      <tr>
+        <td><%= link_to item.id, product_item_path(@product, item) %></td>
+        <td><%= item.size %></td>
+        <td><%= item.color %></td>
+        <td><%= item.status %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+<hr>
+<p>
+  <%= link_to "Add Item", new_product_item_path(@product), class: "btn btn-default" %>
+</p>
