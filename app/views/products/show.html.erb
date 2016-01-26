@@ -20,7 +20,9 @@
 <% if @product.items.count > 0 %>
   <table class="table table-hover">
     <thead>
-      <tr><td>id</td><td>size</td><td>color</td><td>status</td></tr>
+      <tr>
+        <th>id</th><th>size</th><th>color</th><th>status</th>
+      </tr>
     </thead>
     <tbody>
     <% @product.items.each do |item| %>
