@@ -15,5 +15,10 @@
   </tbody>
 </table>
 
+<hr>
+<p>
+  <%= link_to "Edit Item", edit_product_item_path(@product, @item), class: "btn btn-default" %>
+  <%= link_to "Delete Item", product_item_path(@product, @item), method: :delete, class: "btn btn-default" %>
+</p>
 
 <%= link_to  "Return to product", @product %>
