@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-1. Fork this repo, and clone it into your `devel` folder on your local machine.
+1. Fork this repo, and clone it into your `devel` or `wdi` folder on your local machine.
 2. Run `bundle install` to install gems.
 3. Run `rake db:setup` to create and migrate the database.
 4. Run `rspec spec/features` in the Terminal. You should see firefox start up and run through the specs.  (See below for chrome)
